@@ -39,7 +39,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'backbone-on-rails'
 gem 'simple-rss'
-
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails'

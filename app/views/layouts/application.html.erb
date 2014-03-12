@@ -8,7 +8,14 @@
 </head>
 <body>
 
+<!-- <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> -->
+         
 <%= yield %>
+
+<script type="application/json" id="bootstrapped_feeds_json">
+ { feeds: <%= Feed.all.to_json.html_safe %> }
+</script>
 
 
 <div class="content"></div>
