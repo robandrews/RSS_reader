@@ -6,6 +6,8 @@ window.NewReader = {
   initialize: function() {
     new NewReader.Routers.AppRouter();
     Backbone.history.start();
+    
+    NewReader.Collections.feeds.fetch();
   }
 };
 

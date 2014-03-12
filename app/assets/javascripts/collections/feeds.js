@@ -2,8 +2,27 @@ window.NewReader.Collections.Feeds = Backbone.Collection.extend({
   
   url: "/feeds",
   
-  model: NewReader.Models.Feed
+  model: NewReader.Models.Feed,
   
+  getOrFetch: function(id){
+    var model;
+    var feeds = this;
+    
+    if(model = this.get(id)){
+      model.fetch();
+      return model;
+      
+    }else{
+      model = new NewReader.Models.Feed({id: id});
+      model.fetch({
+        success: function(data){
+          feeds.add(data)
+        }
+      });
+      return model;
+    }
+  }  
 })
+
 
 window.NewReader.Collections.feeds = new NewReader.Collections.Feeds();

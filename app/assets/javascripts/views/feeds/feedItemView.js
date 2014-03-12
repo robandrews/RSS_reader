@@ -1,5 +1,5 @@
 window.NewReader.Views.FeedItemView = Backbone.View.extend({
-  tag: "li",
+  tagName: "li",
   template: JST["feeds/item"],
   
   render: function(){

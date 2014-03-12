@@ -2,7 +2,25 @@ class FeedsController < ApplicationController
   def index
     respond_to do |format|
       format.html { render :index }
-      format.json { render :json => Feed.all }
+      Feed.all.each(&:reload);
+      format.json do 
+        Feed.all.each do |feed|
+          render :json => feed.to_json(:include => :entries)
+        end
+      end
+    end
+  end
+  
+  def show
+    @feed = Feed.find(params[:id])
+
+    
+    if @feed
+    
+      puts "feed found: #{@feed.title}"
+      render :json => @feed
+    else
+      render :json => @feed.errors, :status => :unprocessable_entity
     end
   end
 
