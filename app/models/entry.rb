@@ -7,7 +7,7 @@ class Entry < ActiveRecord::Base
       link: entryData.link,
       published_at: entryData.pubDate,
       title: entryData.title,
-      json: entryData,
+      json: entryData.to_json,
       feed_id: feed.id
     })
   end
