@@ -15,7 +15,7 @@ window.NewReader.Views.FeedIndexView = Backbone.View.extend({
     this.collection.each(function(feedItem) {
         var feedItemView = new NewReader.Views.FeedItemView( { model: feedItem });
         that.$("ul.feeds-index").append(feedItemView.render().$el);
-    })//grab el?
+    })
 
     return this;
     

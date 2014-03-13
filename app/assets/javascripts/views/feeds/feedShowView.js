@@ -9,5 +9,16 @@ window.NewReader.Views.FeedShowView = Backbone.View.extend({
     var content = this.template({feed: this.model});
     this.$el.html(content);
     return this;
+  },
+  events: {
+    "click #refresh-feed":"refresh"
+  },
+  refresh:function(){
+    var that = this;
+    this.model.fetch({
+      success:function(){
+        that.render();
+      }
+    })
   }
 })

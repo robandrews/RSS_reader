@@ -1,6 +1,11 @@
 class FeedsController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :redirect_if_foreign_user
   
+  # def redirect_if_foreign_user
+  #   unless user_logged_in?
+  #     redirect_to new_session_url 
+  #   end
+  # end
   
   def index
     respond_to do |format|

@@ -2,6 +2,8 @@
 
 <h3>Entries</h3>
 
+<button id="refresh-feed">Refresh</button>
+
 <ul>
 <% feed.entries().each(function(entry){ %>
   <li><a href="<%= entry.escape('url') %>"> <%= entry.escape("title") %> </a> </li>
