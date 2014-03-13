@@ -1,4 +1,7 @@
 class FeedsController < ApplicationController
+  before_filter :authenticate_user!
+  
+  
   def index
     respond_to do |format|
       format.html { render :index }
@@ -14,11 +17,13 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find(params[:id])
 
-    
+  
     if @feed
-    
+      if @feed.updated_at > 2.minutes.ago
+        @feed.reload
+      end
       puts "feed found: #{@feed.title}"
-      render :json => @feed
+      render :json => @feed.to_json(:include => :entries)
     else
       render :json => @feed.errors, :status => :unprocessable_entity
     end

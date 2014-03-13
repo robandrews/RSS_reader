@@ -7,7 +7,7 @@ window.NewReader.Collections.Feeds = Backbone.Collection.extend({
   getOrFetch: function(id){
     var model;
     var feeds = this;
-    
+    debugger
     if(model = this.get(id)){
       model.fetch();
       return model;
@@ -24,5 +24,3 @@ window.NewReader.Collections.Feeds = Backbone.Collection.extend({
   }  
 })
 
-
-window.NewReader.Collections.feeds = new NewReader.Collections.Feeds();
